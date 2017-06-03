@@ -1,0 +1,8 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="lean.study.walkthrough.HelloWorld.HelloPanel" xmlns:html="http://www.w3.org/1999/xhtml">
+		<Panel headerText = "Hello World" >
+<Button id = "btn_SayHello"/>
+<Button id = "btn_HelloDialog" />
+	<Input id = "ipt_Info" />
+	</Panel>
+</core:View>

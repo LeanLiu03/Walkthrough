@@ -1,0 +1,13 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="lean.study.walkthrough.Root" xmlns:html="http://www.w3.org/1999/xhtml">
+<App>
+<pages>
+	<Page title="{i18n>appTitle}">
+		<content>
+		<mvc:XMLView viewName = "lean.study.walkthrough.HelloWorld.HelloPanel" />
+		<mvc:XMLView viewName = "lean.study.walkthrough.View.InvoiceList" />
+		</content>
+	</Page>
+</pages>
+</App>
+</core:View>
