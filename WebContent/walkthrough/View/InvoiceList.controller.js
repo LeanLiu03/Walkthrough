@@ -53,7 +53,12 @@ sap.ui.define( [ "sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel",
 								return new Formatter( oController ).statusText( oValue );
 							}
 						}
-					} )
+					} ),
+					type:"Navigation",
+					press:function(oEvent){
+						//To be implemented
+						oController.navigateToDetail(oEvent);
+					}
 				} );
 
 				_listitemTemplate.bindProperty( "numberState", {
@@ -78,5 +83,12 @@ sap.ui.define( [ "sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel",
 
 			this.getView().setModel( _currencyModel, "view" );
 		},
+		navigateToDetail:function(oEvent){
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			var oItem = oEvent.getSource();
+			oRouter.navTo("detail",{
+				invoicePath: oItem.getBindingContext("invoice").getPath().substr(1)
+			});
+		}
 	} );
 } );

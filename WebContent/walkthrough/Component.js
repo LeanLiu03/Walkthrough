@@ -13,6 +13,8 @@ sap.ui.define([ "../Component", "sap/ui/model/json/JSONModel", "sap/ui/model/res
 					
 					this._DialogHelper = new Dialog_Handler(this.getRootControl());
 					
+					
+					this.getRouter().initialize();
 					// Set i18n model
 					// var i18nModel = new ResourceModel({
 					// bundleName:"lean.study. alkthrough.I18N.i18n"

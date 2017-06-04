@@ -10,7 +10,19 @@
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
-		"ach": "CA-UI5-DOC"
+		"ach": "CA-UI5-DOC",
+		"dataSources": {
+			"invoiceRemote": {
+				"uri": "https://services.odata.org/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		},
+		"permissions": [
+			"https://services.odata.org"
+		]
 	},
 	"sap.ui": {
 		"_version": "1.1.0",
@@ -25,6 +37,7 @@
 		]
 	},
 	"sap.ui5": {
+		
 		"_version": "1.1.0",
 		"rootView": "lean.study.walkthrough.Root",
 		"dependencies": {
@@ -42,9 +55,41 @@
 					"bundleName": "lean.study.walkthrough.I18N.i18n"
 				}
 			},
-			"invoice":{
-			"type":"sap.ui.model.json.JSONModel",
-			"uri":"walkthrough/Data/Invoice.json"
+			"invoice1": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "walkthrough/Data/Invoice.json"
+			},
+			"invoice": {
+				"dataSource": "invoiceRemote"
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "lean.study.walkthrough.View",
+				"controlId": "app",
+				"controlAggregation": "pages"
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "overview",
+					"target": "overview"
+				},
+				{
+					"pattern": "detail/{invoicePath}",
+					"name": "detail",
+					"target": "detail"
+				}
+			],
+			"targets": {
+				"overview": {
+					"viewName": "Overview"
+				},
+				"detail": {
+					"viewName": "Detail"
+				}
 			}
 		}
 	}
